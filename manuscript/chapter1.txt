@@ -1,0 +1,62 @@
+# Why choose expressjs ?
+> express is extremely fast and it's a minimal framework
+
+Minimal in the sense means that it is. configurable from the ground up and you can tweek it as per your needs. No need to download all those heavy codes and then start developing application. Just start with one single file and expand it as you grow.
+
+Let's start with one single http application with nodejs and express.
+>Whenever we are building nodejs project we should have node and npm installed.
+Nodejs for running our application and npm for downloading dependencies. If you are missing something then please head over to www.nodejs.org and download the appropiate package as per your need.
+
+Start with creating one folder and changing your directory into it.
+```
+mkdir simplehttp
+cd simplehttp
+```
+And then initialize your empty directory with npm project with npm init command
+```
+npm init -y
+```
+if you want to accept the default values pass the agrument -y or else manually enter the values.
+after doing npm init you will see that there is one file located in the directory named as package.json
+you can run ls to view the content inside the directory
+```
+ls
+```
+![simple1](https://lh3.googleusercontent.com/-KlkCYCy1I7g/W4zzbKq2EuI/AAAAAAAABVo/HjOib8hcI7MUHY9UFjmjddUaqUnn5KHVQCHMYCw/I/simple1.png)
+
+Now everything is setup we will start with old javascript and slowly slowly move towards ES6 and expressjs.
+> Create one simple http server
+
+Nodejs apps are build on top of modules some are internal modules and some are external.
+Internal modules is what makes nodejs as a programming platform and among it's some of the internal modules there is one called http module which is responsible for creating and managing http connections and headers.
+To use the HTTP server and client one must require('http').
+
+The HTTP interfaces in Node.js are designed to support many features of the protocol which have been traditionally difficult to use. In particular, large, possibly chunk-encoded, messages. The interface is careful to never buffer entire requests or responses — the user is able to stream data.
+So write along me and i will explain you each line.
+> ***index.js***
+
+```
+const http = require('http')
+
+const server = http.createServer((req, res) => {
+        res.writeHead(200, { 'Content-Type': 'text/plain' })
+        res.end("Dodo lives here")
+})
+
+server.listen(3000, () => {
+        console.log("listening on http://localhost:3000")
+})
+```
+After writing the code run the file with 
+```
+node index.js
+
+// the output would show you something like this
+listening on http://localhost:3000
+```
+![simple3](https://lh3.googleusercontent.com/-gmm7Gd5q0GE/W4z3kh3fwsI/AAAAAAAABV8/R43rXfSFVvo7EZqKVrNiiuGnPhgIpYwBwCHMYCw/I/simple3.png)
+
+Then head over to your browse and go to the address http://localhost:3000 and you will see something like this
+![simple2](https://lh3.googleusercontent.com/-LxnlCaI0Z64/W4z3I48wtDI/AAAAAAAABV0/SD17DK8SlcYeqVmY7C4s7fTjQP9_XKelwCHMYCw/I/simple2.png)
+
+
