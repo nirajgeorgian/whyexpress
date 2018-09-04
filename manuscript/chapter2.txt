@@ -1,0 +1,2 @@
+# Nodejs Event Module
+## Why should i study about events ??

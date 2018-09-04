@@ -59,4 +59,113 @@ listening on http://localhost:3000
 Then head over to your browse and go to the address http://localhost:3000 and you will see something like this
 ![simple2](https://lh3.googleusercontent.com/-LxnlCaI0Z64/W4z3I48wtDI/AAAAAAAABV0/SD17DK8SlcYeqVmY7C4s7fTjQP9_XKelwCHMYCw/I/simple2.png)
 
+The page say's Dodo lives here but if you inspect it
+Open your developer console then go to Network tabs then click on localhost you will find that the method says GET and the status code 200.
+Okay so let's review our code line by line
+Nodejs work on top of module system. If you want to add functionality just import the module. The module can be from core nodejs or it can be any third part.
+> test/dodo.js
 
+```
+// Example creating one module and executing it
+module.exports = "Dodo Duck"
+```
+the above file created one variable and it exported it so some other file can use it by importing it or by requiring it inside it's own file.
+So let's create one file to import it or to require it
+> test/duck.js
+
+```
+const msg = require('./duck')
+console.log(msg)
+
+// the output will be Dodo Duck
+```
+It was simple just do module.exports and in another file do require.
+But it was just a simple variable what about function. How to export one function. same export with module.exports
+> test/add.js
+
+```
+const add = function(num1, num2) {
+  return num1 + num2
+}
+
+module.exports = add
+```
+Here above we set the value of module.exports to one whole function
+now to use it in another file just require it.
+> test/testadd.js
+
+```
+const add = require('./add')
+
+console.log(add(2, 5))
+// 7
+```
+Here the value of the add is the full function definition.
+Now what if we want to export multiple things like some variable and few functions. Wrap the whole function and variable definition inside an object and pass it to module.exports like this
+> test/operations.js
+
+```
+const add = function(num1, num2) {
+  return num1 + num2
+}
+
+const sub = function(num1, num2) {
+  return num2 - num1;
+}
+
+const msg = "Dodo Duck"
+
+module.exports = {
+  add,
+  sub,
+  msg
+}
+```
+Require it in another file like the previous one and store it in some sort of variable. In the below i stored it inside operations. Now operations become object which have methods like add, sub and property like msg. So simple use dot operator to invoke it.
+> test/testoperations.js
+
+```
+const operations = require('./operations')
+
+console.log(operations.add(2, 3))
+// 5
+
+console.log(operations.sub(2, 3))
+// 1
+
+console.log(operations.msg)
+// Dodo Duck
+```
+Now i think so that we are ready to tackle our code which we wrote inside index.js
+```
+const http = require('http')
+```
+The above line say's that import all the method from the http file which is located inside nodejs directly.
+We don't need relative path to import core nodejs module. Simply import it and it will run it.
+After importing it we get a lot of methods to work with and all deal's with http method, connection, headers etc.
+The one in which we are interested is createServer method accept's one callback function which will get executed once the request is there which basically create's one http server for us and it takes two argument.
+The first one is IncomingMessage Request and the other one is outgoing ServerResponse.
+IncomingMessage specifies the incoming request and it's associate property and ServerResponse gives us the response after executing the request.
+```
+(req, res) => {
+    // your code here
+}
+```
+This is an ES6 arrow function and inplace of the callback function we can use any sort of function. The purpose of the callback function is that when the action resolve's the function block will get executed in our case the below one will be executed.
+```
+{
+        res.writeHead(200, { 'Content-Type': 'text/plain' })
+        res.end("Dodo lives here")
+}
+```
+The above block will get executed once we resolve the createServer method.
+> **HTTP works with two ends. Request and response.**
+
+Whenever we want to access some resource from the server we send one request and the server will come back to us with some response.
+So that are the two parameter's (req, res) in the callback function.
+req has it's own method and property and also same goes for response.
+we want that whenever response comes, we want to set it's header with status code 200 and we want to send html files so we used ***res.writeHead*** method. And later we want to end the connection with simple message "Dodo lives here".
+Before server will do anything it need some port on which it can listen for request and then send it's response accordingly.
+So firstly we stored our connection in server variable and then we invoke the listen method and pass it a port number on which it can listen for changes.
+After is it listening we want some sort of message to be logged out so we passed one callback function which will call ***console.log*** statement.
+Next Chapter we will dive into deeper with nodejs and learn about it's event module.
