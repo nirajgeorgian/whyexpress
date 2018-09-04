@@ -22,7 +22,7 @@ you can run ls to view the content inside the directory
 ```
 ls
 ```
-![simple1](https://lh3.googleusercontent.com/-KlkCYCy1I7g/W4zzbKq2EuI/AAAAAAAABVo/HjOib8hcI7MUHY9UFjmjddUaqUnn5KHVQCHMYCw/I/simple1.png)
+![Console Showing getting started with simple npm project.](images/simple1.png)
 
 Now everything is setup we will start with old javascript and slowly slowly move towards ES6 and expressjs.
 > Create one simple http server
@@ -54,10 +54,10 @@ node index.js
 // the output would show you something like this
 listening on http://localhost:3000
 ```
-![simple3](https://lh3.googleusercontent.com/-gmm7Gd5q0GE/W4z3kh3fwsI/AAAAAAAABV8/R43rXfSFVvo7EZqKVrNiiuGnPhgIpYwBwCHMYCw/I/simple3.png)
+![Listening on port 3000](images/simple3.png)
 
 Then head over to your browse and go to the address http://localhost:3000 and you will see something like this
-![simple2](https://lh3.googleusercontent.com/-LxnlCaI0Z64/W4z3I48wtDI/AAAAAAAABV0/SD17DK8SlcYeqVmY7C4s7fTjQP9_XKelwCHMYCw/I/simple2.png)
+![Your first Nodejs App](images/simple2.png)
 
 The page say's Dodo lives here but if you inspect it
 Open your developer console then go to Network tabs then click on localhost you will find that the method says GET and the status code 200.
