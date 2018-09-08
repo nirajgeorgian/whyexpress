@@ -42,7 +42,7 @@ ls
 ```
 
 
-![Console Showing getting started with simple npm project.](./images/simple1.png)
+![Console Showing getting started with simple npm project.](images/simple1.png)
 
 
 Now everything is setup we will start with old javascript and slowly slowly move towards ES6 and expressjs.
@@ -88,13 +88,13 @@ listening on http://localhost:3000
 ```
 
 
-![Listening on port 3000](./images/simple3.png)
+![Listening on port 3000](images/simple3.png)
 
 
 Then head over to your browse and go to the address http://localhost:3000 and you will see something like this
 
 
-![Your first Nodejs App](./images/simple2.png)
+![Your first Nodejs App](images/simple2.png)
 
 
 The page say's Dodo lives here but if you inspect it
