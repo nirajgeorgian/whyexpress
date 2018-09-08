@@ -8,7 +8,11 @@ Minimal in the sense means that it is. configurable from the ground up and you c
 
 
 Let's start with one single http application with nodejs and express.
->Whenever we are building nodejs project we should have node and npm installed.
+
+
+> Whenever we are building nodejs project we should have node and npm installed.
+
+
 Nodejs for running our application and npm for downloading dependencies. If you are missing something then please head over to www.nodejs.org and download the appropiate package as per your need.
 
 
@@ -33,12 +37,12 @@ if you want to accept the default values pass the agrument -y or else manually e
 after doing npm init you will see that there is one file located in the directory named as package.json
 you can run ls to view the content inside the directory
 
-```bash
+```
 ls
 ```
 
 
-![Console Showing getting started with simple npm project.](images/simple1.png)
+![Console Showing getting started with simple npm project.](./images/simple1.png)
 
 
 Now everything is setup we will start with old javascript and slowly slowly move towards ES6 and expressjs.
@@ -76,7 +80,7 @@ server.listen(3000, () => {
 After writing the code run the file with
 
 
-```bash
+```
 node index.js
 
 // the output would show you something like this
@@ -84,13 +88,13 @@ listening on http://localhost:3000
 ```
 
 
-![Listening on port 3000](images/simple3.png)
+![Listening on port 3000](./images/simple3.png)
 
 
 Then head over to your browse and go to the address http://localhost:3000 and you will see something like this
 
 
-![Your first Nodejs App](images/simple2.png)
+![Your first Nodejs App](./images/simple2.png)
 
 
 The page say's Dodo lives here but if you inspect it
@@ -101,7 +105,7 @@ Okay so let's review our code line by line
 Nodejs work on top of module system. If you want to add functionality just import the module. The module can be from core nodejs or it can be any third part.
 
 
-> test/dodo.js
+> ***test/dodo.js***
 
 
 ```js
@@ -114,7 +118,7 @@ the above file created one variable and it exported it so some other file can us
 So let's create one file to import it or to require it
 
 
-> test/duck.js
+> ***test/duck.js***
 
 
 ```js
@@ -129,7 +133,7 @@ It was simple just do module.exports and in another file do require.
 But it was just a simple variable what about function. How to export one function. same export with module.exports
 
 
-> test/add.js
+> ***test/add.js***
 
 
 ```js
@@ -145,7 +149,7 @@ Here above we set the value of module.exports to one whole function
 now to use it in another file just require it.
 
 
-> test/testadd.js
+> ***test/testadd.js***
 
 
 ```js
@@ -160,7 +164,7 @@ Here the value of the add is the full function definition.
 Now what if we want to export multiple things like some variable and few functions. Wrap the whole function and variable definition inside an object and pass it to module.exports like this
 
 
-> test/operations.js
+> ***test/operations.js***
 
 
 ```js
@@ -185,7 +189,7 @@ module.exports = {
 Require it in another file like the previous one and store it in some sort of variable. In the below i stored it inside operations. Now operations become object which have methods like add, sub and property like msg. So simple use dot operator to invoke it.
 
 
-> test/testoperations.js
+> ***test/testoperations.js***
 
 
 ```js
